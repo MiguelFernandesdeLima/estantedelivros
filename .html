@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha estante de livro - Gerenciador de Livros</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href=".css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-book"></i> Minha Estante de Livros</h1>
+            <p>Gerencie sua coleção de livros</p>
+        </header>
+
+        <main>
+            <section class="form-section">
+                <h2>Adicionar/Editar Livro</h2>
+                <form id="bookForm">
+                    <input type="hidden" id="bookId">
+                    
+                    <div class="form-group">
+                        <label for="title">Título*</label>
+                        <input type="text" id="title" required>
+                        <span class="error-message" id="titleError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="author">Autor*</label>
+                        <input type="text" id="author" required>
+                        <span class="error-message" id="authorError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="year">Ano de Publicação</label>
+                        <input type="number" id="year" min="0" max="2099">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <select id="status">
+                            <option value="Não lido">Não lido</option>
+                            <option value="Lido">Lido</option>
+                            <option value="Lendo">Lendo</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" id="saveBtn">Salvar</button>
+                        <button type="button" class="btn btn-secondary" id="cancelBtn">Cancelar</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="search-section">
+                <h2>Buscar Livros</h2>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Buscar por título ou autor...">
+                    <button id="searchBtn" class="btn btn-search"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="filter-options">
+                    <select id="statusFilter">
+                        <option value="">Todos os status</option>
+                        <option value="Lido">Lido</option>
+                        <option value="Lendo">Lendo</option>
+                        <option value="Não lido">Não lido</option>
+                    </select>
+                    <button id="resetFilters" class="btn btn-secondary">Limpar filtros</button>
+                </div>
+            </section>
+
+            <section class="books-section">
+                <h2>Sua Biblioteca</h2>
+                <div class="books-container" id="booksContainer">
+                    <!-- Os livros serão inseridos aqui via JavaScript -->
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>MyBookShelf &copy; 2023 - Gerencie sua coleção de livros</p>
+        </footer>
+    </div>
+
+    <div class="notification" id="notification"></div>
+
+    <script src=".js"></script>
+</body>
+</html>
